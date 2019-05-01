@@ -1,0 +1,83 @@
+@keyframes grow {
+  0% { transform: scaleY(0) }
+  25% { transform: scaleY(1) }
+  50% { transform: scaleY(0) }
+  75% { transform: scaleY(0.5) }
+  100% { transform: scaleY(0) }
+}
+.soundbar-panel {
+  width: 100%;
+  min-width: 250px;
+  border-radius: 50px;
+  background-color: rgba(0,0,0,0.9);
+}
+
+.soundwave-bar {
+  background-size: 14px;
+  background-position: center;
+  background-repeat: repeat-x;
+  height: 50px;
+  width: 210px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  .freq-bar {
+    visibility: hidden;
+  }
+
+  &.animated, &.recorded {
+    background-image: url("/assets/img/circle.svg");
+    .freq-bar {
+      visibility: visible;
+    }
+  }
+
+}
+
+.freq-bar {
+  flex-shrink: 1;
+  margin: 0 3px;
+  width: 8px;
+  background: white;
+  display: inline-block;
+  transform-origin: center;
+  border-radius: 5px;
+  transform: scaleY(0.5);
+
+}
+.bar-1, .bar-7 {
+  height: 10px;
+}
+
+.bar-2, .bar-6 {
+  height: 20px;
+}
+
+.bar-3, .bar-5 {
+  height: 30px;
+}
+
+.bar-4 {
+  height: 40px;
+}
+
+
+.animated {
+  .bar-1, .bar-7 {
+    animation: grow 1.5s ease-out 0.1s infinite;
+  }
+
+  .bar-2, .bar-6 {
+    animation: grow 1.5s ease-in-out 0.2s infinite;
+  }
+
+  .bar-3, .bar-5 {
+    animation: grow 1.5s ease-in-out 0.1s infinite;
+  }
+
+  .bar-4 {
+    animation: grow 1.5s ease-in-out infinite;
+  }
+}

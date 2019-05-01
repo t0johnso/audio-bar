@@ -2,5 +2,169 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "audio-bar": {
+      "root": "projects/audio-bar",
+      "sourceRoot": "projects/audio-bar/src",
+      "projectType": "library",
+      "prefix": "aud",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/audio-bar/tsconfig.lib.json",
+            "project": "projects/audio-bar/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/audio-bar/src/test.ts",
+            "tsConfig": "projects/audio-bar/tsconfig.spec.json",
+            "karmaConfig": "projects/audio-bar/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/audio-bar/tsconfig.lib.json",
+              "projects/audio-bar/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "audio-bar-tester": {
+      "root": "projects/audio-bar-tester/",
+      "sourceRoot": "projects/audio-bar-tester/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/audio-bar-tester",
+            "index": "projects/audio-bar-tester/src/index.html",
+            "main": "projects/audio-bar-tester/src/main.ts",
+            "polyfills": "projects/audio-bar-tester/src/polyfills.ts",
+            "tsConfig": "projects/audio-bar-tester/tsconfig.app.json",
+            "assets": [
+              "projects/audio-bar-tester/src/favicon.ico",
+              "projects/audio-bar-tester/src/assets"
+            ],
+            "styles": [
+              "projects/audio-bar-tester/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/audio-bar-tester/src/environments/environment.ts",
+                  "with": "projects/audio-bar-tester/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "audio-bar-tester:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "audio-bar-tester:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "audio-bar-tester:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/audio-bar-tester/src/test.ts",
+            "polyfills": "projects/audio-bar-tester/src/polyfills.ts",
+            "tsConfig": "projects/audio-bar-tester/tsconfig.spec.json",
+            "karmaConfig": "projects/audio-bar-tester/karma.conf.js",
+            "styles": [
+              "projects/audio-bar-tester/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/audio-bar-tester/src/favicon.ico",
+              "projects/audio-bar-tester/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/audio-bar-tester/tsconfig.app.json",
+              "projects/audio-bar-tester/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "audio-bar-tester-e2e": {
+      "root": "projects/audio-bar-tester-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/audio-bar-tester-e2e/protractor.conf.js",
+            "devServerTarget": "audio-bar-tester:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "audio-bar-tester:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/audio-bar-tester-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "audio-bar"
 }

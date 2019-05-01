@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "audio-bar": [
+        "dist/audio-bar"
+      ],
+      "audio-bar/*": [
+        "dist/audio-bar/*"
+      ]
+    }
   }
 }
