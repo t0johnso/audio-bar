@@ -1,6 +1,34 @@
 # AudioBar
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.0.
+I really just created this for my projects, but why not share. Keep in mind I may not be monitoring pull requests etc.
+I may update readme or make this more of a proper install or publish to NPM .. we'll see.
+
+## Angular Project repo
+This repo contains both an <b>Audio Bar</b> angular module [projects/audio-bar](https://github.com/t0johnso/audio-bar/tree/master/projects/audio-bar) and an angular tester app [projects/audio-bar-tester](https://github.com/t0johnso/audio-bar/tree/master/projects/audio-bar-tester).   
+
+## Audio-bar-tester
+The test app is an Angular 7 app that has a parent component that uses the [MediaRecorder](https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder), [HTMLAudioElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement), [MediaStream API](https://developer.mozilla.org/en-US/docs/Web/API/Media_Streams_API). The idea here is that you have a parent component with recorder and HTMLAudioElement to hold the sound file for a based mic recorder and a child component with animated playback bar.
+So it's a nice sample to get a sense of how you can hook into audio [WebRTC](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API) / [MediaStreams](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream) in angular projects.
+
+## Audio Bar
+The audio bar is just the animated playback bar. You can set update the audio-bar state to animate on 'recording' and 'playing' states. The 'recorded' state is for a visual cue that there is a recording avail for playback.
+
+<pre><aud-audio-bar [playing]="playing" [recording]="recording" [recorded]="recorded"></aud-audio-bar></pre>
+
+## Install
+This is an angular module which you can install from file using npm.
+1. clone repo ( You probably shouldn't be downloading zips etc. from folks you don't know ).
+<pre>git clone https://github.com/t0johnso/audio-bar.git</pre>
+
+2. go to your existing angular project directory
+<pre>cd wherever/my/project/is/</pre>
+
+
+3. npm install from file: compiled module from dist directory in repo
+<pre>npm install --save file:../audio-bar/dist/audio-bar</pre>
+
+or... use bower or yarn or whatever makes you happy.
 
 ## Development server
 
