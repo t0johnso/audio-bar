@@ -61,12 +61,20 @@ example: app.module, myfeature.module etc.
 ```
 
 And then in your parent component's template. [playing], [recording], and [recorded] are expecting booleans. You can see I just fed it properties with the same names from my parent component.
-`<aud-audio-bar [playing]="playing" [recording]="recording" [recorded]="recorded"></aud-audio-bar>`
+
+```
+  <aud-audio-bar [playing]="playing" [recording]="recording" [recorded]="recorded"></aud-audio-bar>
+```
+  
 
 ## Standard Angular CLI commands:
 Keep in mind that because this is a multi-project repo, you'll need to specify with project you want to serve/build/test etc.
 example:
-`ng serve audio-bar-tester`
+
+```
+  ng serve audio-bar-tester
+```
+  
 ### Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
