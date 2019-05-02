@@ -13,40 +13,40 @@ So it's a nice sample to get a sense of how you can hook into audio [WebRTC](htt
 
 ## Audio Bar
 The audio bar is just the animated playback bar. You can set update the audio-bar state to animate on 'recording' and 'playing' states. The 'recorded' state is for a visual cue that there is a recording avail for playback.
-
-<pre>`<aud-audio-bar [playing]="playing" [recording]="recording" [recorded]="recorded"></aud-audio-bar>`</pre>
+`<aud-audio-bar [playing]="playing" [recording]="recording" [recorded]="recorded"></aud-audio-bar>`
 
 ## Install
 The dist/audio-bar is the compiled angular module that you can install from file using npm.
 1. clone repo
-<pre>git clone https://github.com/t0johnso/audio-bar.git</pre>
+`git clone https://github.com/t0johnso/audio-bar.git`
 
 2. go to your existing angular project directory
-<pre>cd ../wherever/my/angular/project/is</pre>
+`cd ../wherever/my/angular/project/is`
 
 3. use npm to install from file: compiled module from dist directory in repo
-<pre>npm install --save file:../audio-bar/dist/audio-bar</pre>
+`npm install --save file:../audio-bar/dist/audio-bar`
 Or... use bower or yarn or whatever makes you happy.
 This makes a shortcut/alias style of import, so it doesn't make it's own copy of the node_module in your project.
 
 ## Usage
 Once you've installed the module, you can import the AudioBarModule, into your projects module.
 example: app.module, myfeature.module etc.
-<pre>import { AudioBarModule } from 'audio-bar';</pre>
-<pre>```
-      imports: [
-      ...
+`import { AudioBarModule } from 'audio-bar';`
+
+```
+  imports: [
+    ...
     AudioBarModule
-  ],```
-</pre>
+  ],
+```
 
 And then in your parent component's template. [playing], [recording], and [recorded] are expecting booleans. You can see I just fed it properties with the same names from my parent component.
-<pre>`<aud-audio-bar [playing]="playing" [recording]="recording" [recorded]="recorded"></aud-audio-bar>`</pre>
+`<aud-audio-bar [playing]="playing" [recording]="recording" [recorded]="recorded"></aud-audio-bar>`
 
 ## Standard Angular CLI commands:
 Keep in mind that because this is a multi-project repo, you'll need to specify with project you want to serve/build/test etc.
 example:
-<pre>ng serve audio-bar-tester</pre>
+`ng serve audio-bar-tester`
 ### Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
