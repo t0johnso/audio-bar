@@ -13,25 +13,45 @@ So it's a nice sample to get a sense of how you can hook into audio [WebRTC](htt
 
 ## Audio Bar
 The audio bar is just the animated playback bar. You can set update the audio-bar state to animate on 'recording' and 'playing' states. The 'recorded' state is for a visual cue that there is a recording avail for playback.
-`<aud-audio-bar [playing]="playing" [recording]="recording" [recorded]="recorded"></aud-audio-bar>`
+
+```
+  <aud-audio-bar [playing]="playing" [recording]="recording" [recorded]="recorded"></aud-audio-bar>
+```
+
 
 ## Install
 The dist/audio-bar is the compiled angular module that you can install from file using npm.
 1. clone repo
-`git clone https://github.com/t0johnso/audio-bar.git`
+
+```
+  git clone https://github.com/t0johnso/audio-bar.git
+```
+
 
 2. go to your existing angular project directory
-`cd ../wherever/my/angular/project/is`
+
+```
+  cd ../wherever/my/angular/project/is
+```
+
 
 3. use npm to install from file: compiled module from dist directory in repo
-`npm install --save file:../audio-bar/dist/audio-bar`
+
+```
+  npm install --save file:../audio-bar/dist/audio-bar
+```
+
 Or... use bower or yarn or whatever makes you happy.
 This makes a shortcut/alias style of import, so it doesn't make it's own copy of the node_module in your project.
 
 ## Usage
 Once you've installed the module, you can import the AudioBarModule, into your projects module.
 example: app.module, myfeature.module etc.
-`import { AudioBarModule } from 'audio-bar';`
+
+```
+  import { AudioBarModule } from 'audio-bar';
+```
+
 
 ```
   imports: [
