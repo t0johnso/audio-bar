@@ -1,18 +1,17 @@
 # AudioBar
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.0.
-I really just created this for my projects, but why not share. Right now it's 0.1, there's a hanging empty service it's including so I'll have to trim that out in 1.0. Keep in mind I may not be monitoring pull requests etc.
-I may update readme or make this more of a proper install or publish to NPM .. we'll see.
+This angular library module is a pre-release version 0.1, so not yet vetted/tested for production.
 
 ## Angular Project repo
 This repo contains both an <b>Audio Bar</b> angular module [projects/audio-bar](https://github.com/t0johnso/audio-bar/tree/master/projects/audio-bar) and an angular tester app [projects/audio-bar-tester](https://github.com/t0johnso/audio-bar/tree/master/projects/audio-bar-tester).   
 
 ## Audio-bar-tester
-The test app is an Angular 7 app that has a parent component that uses the [MediaRecorder](https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder), [HTMLAudioElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement), [MediaStream API](https://developer.mozilla.org/en-US/docs/Web/API/Media_Streams_API). The idea here is that you have a parent component with recorder and HTMLAudioElement to hold the sound file for a mic recorder and a child component with animated playback bar.
+The test app is an Angular 7 app that has a parent component and uses [MediaRecorder](https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder), [HTMLAudioElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement), [MediaStream API](https://developer.mozilla.org/en-US/docs/Web/API/Media_Streams_API). The idea here is that you have a parent component with recorder and HTMLAudioElement to hold the sound file for a mic recorder and a child component with animated playback bar.
 So it's a nice sample to get a sense of how you can hook into audio [WebRTC](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API) / [MediaStreams](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream) in angular projects.
 
 ## Audio Bar
-The audio bar is just the animated playback bar. You can set update the audio-bar state to animate on 'recording' and 'playing' states. The 'recorded' state is for a visual cue that there is a recording avail for playback.
+The audio bar module is just the animated playback bar. You can set the audio-bar state to animate on 'recording' and 'playing' states. The 'recorded' state is for a visual cue that there is a recording avail for playback.
 
 ```
   <aud-audio-bar [playing]="playing" [recording]="recording" [recorded]="recorded"></aud-audio-bar>
@@ -27,7 +26,6 @@ The dist/audio-bar is the compiled angular module that you can install from file
   git clone https://github.com/t0johnso/audio-bar.git
 ```
 
-
 2. go to your existing angular project directory
 
 ```
@@ -35,19 +33,27 @@ The dist/audio-bar is the compiled angular module that you can install from file
 ```
 
 
-3. use npm to install from file: compiled module from dist directory in repo
-
+3. use npm to install from file: compiled module from dist/audio-bar directory in repo
+( your path to the audio-bar repo may be a little different based on your directory structure )
 ```
   npm install --save file:../audio-bar/dist/audio-bar
 ```
 
-Or... use bower or yarn or whatever makes you happy.
-This makes a shortcut/alias style of import, so it doesn't make it's own copy of the node_module in your project.
+OR: use bower or yarn or whatever makes you happy.  
+This makes a permalink/shortcut/alias style of import, so rebuilding the package `ng build nursestation` will affect your import in your project.  
+
+OR: You could also install the npm-packager and package the distribution as a tgz that you can import.  
+You can you the npm scripts I've added to the package.json.  
+install repo dependencies `npm install` ( angular cli, ng-packager, etc )
+
+```
+ npm run package
+```
+
 
 ## Usage
-Once you've installed the module, you can import the AudioBarModule, into your projects module.
+Once you've installed the module, you can import the AudioBarModule, into your projects module.  
 example: app.module, myfeature.module etc.
-
 ```
   import { AudioBarModule } from 'audio-bar';
 ```
@@ -65,7 +71,7 @@ And then in your parent component's template. [playing], [recording], and [recor
 ```
   <aud-audio-bar [playing]="playing" [recording]="recording" [recorded]="recorded"></aud-audio-bar>
 ```
-  
+
 
 ## Standard Angular CLI commands:
 Keep in mind that because this is a multi-project repo, you'll need to specify with project you want to serve/build/test etc.
@@ -74,12 +80,12 @@ example:
 ```
   ng serve audio-bar-tester
 ```
-  
+
 ### Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-you don't serve a the module, just the tester app
+you don't serve the audio-bar module, just the audio-bar-tester app
 
 ### Code scaffolding
 

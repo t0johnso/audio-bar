@@ -1,22 +1,4 @@
-import { Injectable, Component, Input, NgModule, defineInjectable } from '@angular/core';
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-var AudioBarService = /** @class */ (function () {
-    function AudioBarService() {
-    }
-    AudioBarService.decorators = [
-        { type: Injectable, args: [{
-                    providedIn: 'root'
-                },] }
-    ];
-    /** @nocollapse */
-    AudioBarService.ctorParameters = function () { return []; };
-    /** @nocollapse */ AudioBarService.ngInjectableDef = defineInjectable({ factory: function AudioBarService_Factory() { return new AudioBarService(); }, token: AudioBarService, providedIn: "root" });
-    return AudioBarService;
-}());
+import { Component, Input, NgModule } from '@angular/core';
 
 /**
  * @fileoverview added by tsickle
@@ -69,6 +51,6 @@ var AudioBarModule = /** @class */ (function () {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
-export { AudioBarService, AudioBarComponent, AudioBarModule };
+export { AudioBarComponent, AudioBarModule };
 
 //# sourceMappingURL=audio-bar.js.map
