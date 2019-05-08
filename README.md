@@ -1,7 +1,7 @@
 # AudioBar
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.0.
-This angular library module is a pre-release version 0.1, so not yet vetted/tested for production.
+This angular library module is a pre-release version 0.0.0, so not yet vetted/tested for production.
 
 ## Angular Project repo
 This repo contains both an <b>Audio Bar</b> angular module [projects/audio-bar](https://github.com/t0johnso/audio-bar/tree/master/projects/audio-bar) and an angular tester app [projects/audio-bar-tester](https://github.com/t0johnso/audio-bar/tree/master/projects/audio-bar-tester).   
@@ -33,27 +33,32 @@ The dist/audio-bar is the compiled angular module that you can install from file
 ```
 
 
-3. use npm to install from file: compiled module from dist/audio-bar directory in repo
+3. Install from repo's compiled module from dist/audio-bar directory. This makes a permalink/shortcut/alias style of import, so rebuilding the package (ng build nursestation) will affect your import in your project.  
+
+use npm to install from file: compiled module from dist/audio-bar directory in repo
 ( your path to the audio-bar repo may be a little different based on your directory structure )
 ```
   npm install --save file:../audio-bar/dist/audio-bar
 ```
-
 OR: use bower or yarn or whatever makes you happy.  
-This makes a permalink/shortcut/alias style of import, so rebuilding the package `ng build nursestation` will affect your import in your project.  
 
-OR: You could also install the npm-packager and package the distribution as a tgz that you can import.  
+OR: You could instead install the npm-packager and package the distribution as a tgz that you can import.  
 You can you the npm scripts I've added to the package.json.  
 install repo dependencies `npm install` ( angular cli, ng-packager, etc )
 
 ```
  npm run package
 ```
-
+Then put your TAR file where you like and install using file path.
+```
+npm install --save file:../audio-bar/dist/audio-bar/audio-bar-0.0.1.tgz
+```
 
 ## Usage
 Once you've installed the module, you can import the AudioBarModule, into your projects module.  
-example: app.module, myfeature.module etc.
+example: app.module, myfeature.module etc.  
+
+### projects/audio-bar-tester/src/app/app.module.ts
 ```
   import { AudioBarModule } from 'audio-bar';
 ```
@@ -66,8 +71,9 @@ example: app.module, myfeature.module etc.
   ],
 ```
 
-And then in your parent component's template. [playing], [recording], and [recorded] are expecting booleans. You can see I just fed it properties with the same names from my parent component.
+And then in your parent component's template. The aud-audio-bar component's [playing], [recording], and [recorded] properties are expecting booleans. You can see I just fed it properties with the same names from my parent av-recorder-player component.  
 
+### audio-bar-tester/src/app/recorder-player/recorder-player.html
 ```
   <aud-audio-bar [playing]="playing" [recording]="recording" [recorded]="recorded"></aud-audio-bar>
 ```
