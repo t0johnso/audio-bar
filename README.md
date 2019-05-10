@@ -8,7 +8,11 @@ This repo contains both an <b>Audio Bar</b> angular module [projects/audio-bar](
 
 ## Audio-bar-tester
 The test app is an Angular 7 app that has a parent component and uses [MediaRecorder](https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder), [HTMLAudioElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement), [MediaStream API](https://developer.mozilla.org/en-US/docs/Web/API/Media_Streams_API). The idea here is that you have a parent component with recorder and HTMLAudioElement to hold the sound file for a mic recorder and a child component with animated playback bar.
-So it's a nice sample to get a sense of how you can hook into audio [WebRTC](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API) / [MediaStreams](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream) in angular projects.
+So it's a nice sample to get a sense of how you can hook into audio [WebRTC](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API) / [MediaStreams](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream) in angular projects.  
+For a general introduction on how to use the Media Streams API to record and capture audio check out my presentation:
+### [HTMLAudioElement](https://docs.google.com/presentation/d/1dLhyjz4KbKExYwwIyf9BVZoU2uYwfWi68BvlCFzjySU/edit?usp=sharing)
+
+
 
 ## Audio Bar
 The audio bar module is just the animated playback bar. You can set the audio-bar state to animate on 'recording' and 'playing' states. The 'recorded' state is for a visual cue that there is a recording avail for playback.
